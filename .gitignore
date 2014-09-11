@@ -1,0 +1,4 @@
+/.bundle
+/.vagrant
+/vendor/bundle
+/.envrc

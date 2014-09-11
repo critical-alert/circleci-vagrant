@@ -1,0 +1,26 @@
+machine:
+  timezone:
+    Asia/Tokyo
+  ruby:
+    version:
+      2.1.2
+dependencies:
+  cache_directories:
+    - vagrant
+    - ~/.vagrant.d
+  pre:
+    - wget https://dl.bintray.com/mitchellh/vagrant/vagrant_1.6.5_x86_64.deb
+    - sudo dpkg -i vagrant_1.6.5_x86_64.deb
+    - vagrant plugin install vagrant-aws
+test:
+  pre:
+    - bundle install
+    - vagrant up ci --provider=aws:
+        timeout: 600 
+    - vagrant ssh-config ci >> ~/.ssh/config
+    - bundle exec knife solo bootstrap ci
+  override:
+    - bundle exec rake spec:
+        timeout: 600
+post:
+    - vagrant destroy ci --force
