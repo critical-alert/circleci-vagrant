@@ -22,5 +22,5 @@ test:
   override:
     - bundle exec rake spec:
         timeout: 600
-post:
-    - vagrant destroy ci --force
+  post:
+      - vagrant destroy ci --force

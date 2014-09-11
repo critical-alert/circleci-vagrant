@@ -26,7 +26,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
       override.ssh.username = "root"
 
       ## This private key is configured on CircleCI
-      override.ssh.private_key_path = ENV['AWS_SSH_KEY_PATH']
+      override.ssh.private_key_path = "~/.ssh/id_circleci"
       
       ## Use pty
       override.ssh.pty = true
