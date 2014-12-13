@@ -1,9 +1,6 @@
 machine:
   timezone:
     Asia/Tokyo
-  ruby:
-    version:
-      2.1.2
 dependencies:
   cache_directories:
     - vagrant
