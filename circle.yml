@@ -12,7 +12,7 @@ dependencies:
 test:
   pre:
     - bundle install
-    - VAGRANT_LOG=debug vagrant up ci --provider=aws:
+    - SSL_CERT_DIR=/etc/ssl/certs vagrant up ci --provider=aws:
         timeout: 600 
     - vagrant ssh-config ci >> ~/.ssh/config
     - bundle exec knife solo bootstrap ci
